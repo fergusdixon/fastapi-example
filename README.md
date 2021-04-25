@@ -28,7 +28,7 @@ Docs are at http://localhost/docs
 
 ### Tests
 
-Run unittests with coverage:
+Run unittests with coverage (in `app/tests`):
 
 ```shell
 make test-cov
@@ -40,7 +40,7 @@ Or with pytest-watch to rerun tests every time a change is made:
 make test-watch
 ```
 
-Run Behave tests:
+Run Behave tests (in `app/tests/features`):
 
 ```shell
 make bdd
