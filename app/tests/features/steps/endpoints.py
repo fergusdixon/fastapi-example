@@ -1,4 +1,4 @@
-from behave import *
+from behave import given, use_fixture, use_step_matcher, when, then
 from faker import Faker
 
 from app.core.config import settings
