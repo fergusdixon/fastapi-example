@@ -27,8 +27,3 @@ docker-run:
 
 migrate:
 	alembic upgrade head
-
-dev:
-	poetry install
-	poetry shell
-	make migrate
