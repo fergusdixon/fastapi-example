@@ -21,7 +21,10 @@ def create_user(user_in: UserCreate, db: Session = Depends(deps.get_db)) -> Any:
 
 @router.get("/{user_id}", response_model=User)
 def get_user_by_id(user_id: int, db: Session = Depends(deps.get_db)) -> Any:
-    return user_crud.user.get(db, id=user_id)
+    user = user_crud.user.get(db, id=user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail=f"User {user_id} not found.")
+    return user
 
 
 @router.put("/{user_id}/address/{address_id}")

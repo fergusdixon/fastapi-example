@@ -27,6 +27,12 @@ def test_get_user(client: TestClient) -> None:
     assert user_response.json().get("name") == "Test User 2"
 
 
+def test_get_user_fail(client: TestClient) -> None:
+    user_response = client.get(f"{settings.API_V1_STR}/users/-1")
+    assert user_response.status_code == 404
+    assert user_response.json().get("detail") == "User -1 not found."
+
+
 def test_link_user_to_address(client: TestClient) -> None:
     user = client.post(f"{settings.API_V1_STR}/users", json={"name": "Test User 3"}).json()
     address = client.post(f"{settings.API_V1_STR}/addresses", json={"place": "Test Address 2"}).json()

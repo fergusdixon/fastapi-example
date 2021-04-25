@@ -1,6 +1,6 @@
 from typing import Any
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.api import deps
@@ -21,4 +21,7 @@ def create_address(address_in: AddressCreate, db: Session = Depends(deps.get_db)
 
 @router.get("/{address_id}", response_model=Address)
 def get_address_by_id(address_id: int, db: Session = Depends(deps.get_db)) -> Any:
-    return address_crud.address.get(db, id=address_id)
+    address = address_crud.address.get(db, id=address_id)
+    if not address:
+        raise HTTPException(status_code=404, detail=f"Address {address_id} not found.")
+    return address

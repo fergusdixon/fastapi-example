@@ -23,4 +23,7 @@ docker-build:
 	docker build . -t fastapi-example:latest
 
 docker-run:
-	docker run -d --name fastapi-example -p 80:80 docker.io/library/fastapi-example:latest
+	docker run --name fastapi-example -p 80:80 docker.io/library/fastapi-example:latest
+
+make migrate:
+	alembic upgrade head

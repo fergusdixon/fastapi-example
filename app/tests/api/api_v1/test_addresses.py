@@ -25,3 +25,9 @@ def test_get_address(client: TestClient) -> None:
     address_response = client.get(f"{settings.API_V1_STR}/addresses/{address_id}")
     assert address_response.status_code == 200
     assert address_response.json().get("place") == "Test Address 2"
+
+
+def test_get_address_fail(client: TestClient) -> None:
+    address_response = client.get(f"{settings.API_V1_STR}/addresses/-1")
+    assert address_response.status_code == 404
+    assert address_response.json().get("detail") == "Address -1 not found."
