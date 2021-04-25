@@ -1,4 +1,8 @@
+from typing import List
+
 from pydantic import BaseModel
+
+from app.schemas.address import Address
 
 
 class UserBase(BaseModel):
@@ -30,4 +34,4 @@ class User(UserInDBBase):
     """
     Fields to be returned from the endpoints
     """
-    pass
+    addresses: List[Address]

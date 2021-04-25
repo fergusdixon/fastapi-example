@@ -31,3 +31,23 @@ def test_get_user(client: TestClient) -> None:
     user_response = client.get(f"{settings.API_V1_STR}/users/{user_id}")
     assert user_response.status_code == 200
     assert user_response.json().get("name") == "Test User 2"
+
+
+def test_link_user_to_address(client: TestClient) -> None:
+    user = client.post(f"{settings.API_V1_STR}/users", json={
+        "name": "Test User 3"
+    }).json()
+    address = client.post(f"{settings.API_V1_STR}/addresses", json={
+        "place": "Test Address 2"
+    }).json()
+
+    assert user
+    assert address
+
+    link_response = client.put(f"{settings.API_V1_STR}/users/{user['id']}/address/{address['id']}")
+    assert link_response.status_code == 200
+
+    user = client.get(f"{settings.API_V1_STR}/users/{user['id']}").json()
+    assert isinstance(user.get("addresses"), list)
+    assert len(user.get("addresses")) == 1
+    assert user.get("addresses")[0]["id"] == address["id"]
