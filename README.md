@@ -28,9 +28,7 @@ Docs are at http://localhost/docs
 
 ### Tests
 
-TODO: Behave tests 
-
-Run unittests with coverage:
+Run unittests with coverage (in `app/tests`):
 
 ```shell
 make test-cov
@@ -40,6 +38,12 @@ Or with pytest-watch to rerun tests every time a change is made:
 
 ```shell
 make test-watch
+```
+
+Run Behave tests (in `app/tests/features`):
+
+```shell
+make bdd
 ```
 
 ### Linting
