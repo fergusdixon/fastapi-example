@@ -28,8 +28,6 @@ Docs are at http://localhost/docs
 
 ### Tests
 
-TODO: Behave tests 
-
 Run unittests with coverage:
 
 ```shell
@@ -40,6 +38,12 @@ Or with pytest-watch to rerun tests every time a change is made:
 
 ```shell
 make test-watch
+```
+
+Run Behave tests:
+
+```shell
+make bdd
 ```
 
 ### Linting
