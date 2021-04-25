@@ -21,12 +21,10 @@ class UserInDBBase(UserBase):
 
 
 class User(UserInDBBase):
-
     """Fields to be returned from the endpoints."""
 
 
 class UserWithAddresses(User):
-
     """Fields to be returned from the endpoints with linked addresses."""
 
     addresses: List[Address]
