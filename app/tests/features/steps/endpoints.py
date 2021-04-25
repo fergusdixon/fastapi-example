@@ -1,3 +1,5 @@
+from typing import Any
+
 from behave import given, then, use_fixture, use_step_matcher, when
 from faker import Faker
 
@@ -10,7 +12,7 @@ fake = Faker()
 
 
 @given("a user's id, and 2 addresses ids")
-def step_impl(context):
+def create_one_user_two_addresses(context: Any) -> None:
     """
     :type context: behave.runner.Context
     """
@@ -32,7 +34,7 @@ def step_impl(context):
 
 
 @when("we we link them")
-def step_impl(context):
+def link_addresses(context: Any) -> None:
     """
     :type context: behave.runner.Context
     """
@@ -45,7 +47,7 @@ def step_impl(context):
 
 
 @then("we see the entities are linked")
-def step_impl(context):
+def check_address_are_linked(context: Any) -> None:
     """
     :type context: behave.runner.Context
     """
