@@ -32,4 +32,5 @@ class UserWithAddresses(User):
     """
     Fields to be returned from the endpoints with linked addresses
     """
+
     addresses: List[Address]
