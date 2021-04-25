@@ -25,5 +25,10 @@ docker-build:
 docker-run:
 	docker run --name fastapi-example -p 80:80 docker.io/library/fastapi-example:latest
 
-make migrate:
+migrate:
 	alembic upgrade head
+
+dev:
+	poetry install
+	poetry shell
+	make migrate
