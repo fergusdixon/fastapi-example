@@ -1,4 +1,4 @@
-from app.core.database import SessionLocal
+from app.db.session import SessionLocal
 from typing import Generator
 
 
