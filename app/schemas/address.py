@@ -9,14 +9,6 @@ class AddressCreate(AddressBase):
     """
     Can add extra fields here needed on Address creation
     """
-    pass
-
-
-class AddressUpdate(AddressBase):
-    """
-    Can add extra fields here needed on Address update
-    """
-    pass
 
 
 class AddressInDBBase(AddressBase):
@@ -30,4 +22,3 @@ class Address(AddressInDBBase):
     """
     Fields to be returned from the endpoints
     """
-    pass

@@ -4,9 +4,7 @@ from app.core.config import settings
 
 
 def test_create_address_success(client: TestClient) -> None:
-    response = client.post(f"{settings.API_V1_STR}/addresses", json={
-        "place": "Test Address"
-    })
+    response = client.post(f"{settings.API_V1_STR}/addresses", json={"place": "Test Address"})
     assert response.status_code == 201
     data = response.json()
     assert data.get("place") == "Test Address"
@@ -14,16 +12,12 @@ def test_create_address_success(client: TestClient) -> None:
 
 
 def test_create_address_fail(client: TestClient) -> None:
-    response = client.post(f"{settings.API_V1_STR}/addresses", json={
-        "foo": "bar"
-    })
+    response = client.post(f"{settings.API_V1_STR}/addresses", json={"foo": "bar"})
     assert response.status_code == 422
 
 
 def test_get_address(client: TestClient) -> None:
-    response = client.post(f"{settings.API_V1_STR}/addresses", json={
-        "place": "Test Address 2"
-    })
+    response = client.post(f"{settings.API_V1_STR}/addresses", json={"place": "Test Address 2"})
     assert response.status_code == 201
     data = response.json()
     address_id = data.get("id")

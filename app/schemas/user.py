@@ -13,14 +13,6 @@ class UserCreate(UserBase):
     """
     Can add extra fields here needed on user creation
     """
-    pass
-
-
-class UserUpdate(UserBase):
-    """
-    Can add extra fields here needed on user update
-    """
-    pass
 
 
 class UserInDBBase(UserBase):
@@ -34,4 +26,5 @@ class User(UserInDBBase):
     """
     Fields to be returned from the endpoints
     """
+
     addresses: List[Address]

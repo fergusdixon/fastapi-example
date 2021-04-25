@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.api import deps
 from app.crud import address_crud
-from app.schemas.address import AddressCreate, Address
+from app.schemas.address import Address, AddressCreate
 
 router = APIRouter()
 

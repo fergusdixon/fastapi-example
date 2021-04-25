@@ -1,4 +1,5 @@
 from typing import List, Union
+
 from pydantic import AnyHttpUrl, BaseSettings, validator
 
 
@@ -6,7 +7,7 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "FastAPI Example"
     ENVIRONMENT: str = "dev"
     API_V1_STR: str = "/api/v1"
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = ["http://localhost"]  # type: ignore
     SQLALCHEMY_DATABASE_URL: str = "sqlite:///./app.db"
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
