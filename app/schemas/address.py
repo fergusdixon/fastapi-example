@@ -8,9 +8,7 @@ class AddressBase(BaseModel):
 
 
 class AddressCreate(AddressBase):
-    """
-    Can add extra fields here needed on Address creation
-    """
+    """Can add extra fields here needed on Address creation."""
 
 
 class AddressInDBBase(AddressBase):
@@ -21,15 +19,12 @@ class AddressInDBBase(AddressBase):
 
 
 class Address(AddressInDBBase):
-    """
-    Fields to be returned from the endpoints
-    """
+    """Fields to be returned from the endpoints."""
+    pass
 
 
 class AddressWithUsers(Address):
-    """
-    Fields to be returned from the endpoints including users
-    """
+    """Fields to be returned from the endpoints including users."""
 
     from app.schemas.user import User
 

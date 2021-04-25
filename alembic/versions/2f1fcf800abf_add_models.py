@@ -1,9 +1,8 @@
-"""Add models
+"""Add models.
 
 Revision ID: 2f1fcf800abf
-Revises: 
+Revises:
 Create Date: 2021-04-25 13:44:50.797752
-
 """
 from alembic import op
 import sqlalchemy as sa
