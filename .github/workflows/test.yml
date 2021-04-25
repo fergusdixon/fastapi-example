@@ -33,6 +33,7 @@ jobs:
         poetry run make lint
     - name: Run pytest
       run: |
+        poetry run make migrate
         poetry run make test-cov
         poetry run coverage xml
     - name: Run codacy-coverage-reporter
