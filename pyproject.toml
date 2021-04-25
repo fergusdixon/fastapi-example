@@ -26,7 +26,6 @@ sqlalchemy-stubs = "^0.3"
 pytest-cov = "^2.8.1"
 behave = "^1.2.6"
 pytest-watch = "^4.2.0"
-pre-commit = "^2.12.1"
 
 [tool.isort]
 multi_line_output = 3
