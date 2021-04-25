@@ -36,6 +36,7 @@ jobs:
         poetry run make migrate
         poetry run make test-cov
         poetry run coverage xml
+        poetry run make bdd
     - name: Run codacy-coverage-reporter
       uses: codacy/codacy-coverage-reporter-action@master
       with:

@@ -4,6 +4,9 @@ test-cov:
 test-watch:
 	ptw
 
+bdd:
+	behave app/tests/features
+
 format:
 	autoflake --remove-all-unused-imports --recursive --remove-unused-variables --in-place app --exclude=__init__.py
 	black app
