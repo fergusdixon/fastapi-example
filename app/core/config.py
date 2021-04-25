@@ -20,6 +20,7 @@ class Settings(BaseSettings):
 
     class Config:
         """Set case sensitivity."""
+
         case_sensitive = True
 
 

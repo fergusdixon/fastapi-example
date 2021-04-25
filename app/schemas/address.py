@@ -20,7 +20,6 @@ class AddressInDBBase(AddressBase):
 
 class Address(AddressInDBBase):
     """Fields to be returned from the endpoints."""
-    pass
 
 
 class AddressWithUsers(Address):
