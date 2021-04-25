@@ -12,6 +12,13 @@ Using [Poetry](https://python-poetry.org/) install dependencies
 
 ```shell
 poetry install
+poetry shell
+```
+
+Run migrations
+
+```shell
+make migrate
 ```
 
 ### Structure
