@@ -1,6 +1,8 @@
 from behave import fixture
 from fastapi.testclient import TestClient
+
 from app.main import app
+
 
 # -- FIXTURE: Use generator-function
 @fixture

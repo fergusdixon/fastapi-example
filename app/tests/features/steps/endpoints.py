@@ -1,5 +1,6 @@
 from behave import *
 from faker import Faker
+
 from app.core.config import settings
 from app.tests.features.fixtures import test_client
 
@@ -56,7 +57,7 @@ def step_impl(context):
     assert response.json()
     assert len(response.json().get("addresses", [])) == 2
     assert response.json().get("id") == context.user_id
-    assert response.json()['addresses'][0]["id"] in [context.address_id_one, context.address_id_two]
-    assert response.json()['addresses'][0]["place"] in [context.address_name_one, context.address_name_two]
-    assert response.json()['addresses'][1]["id"] in [context.address_id_one, context.address_id_two]
-    assert response.json()['addresses'][1]["place"] in [context.address_name_one, context.address_name_two]
+    assert response.json()["addresses"][0]["id"] in [context.address_id_one, context.address_id_two]
+    assert response.json()["addresses"][0]["place"] in [context.address_name_one, context.address_name_two]
+    assert response.json()["addresses"][1]["id"] in [context.address_id_one, context.address_id_two]
+    assert response.json()["addresses"][1]["place"] in [context.address_name_one, context.address_name_two]
