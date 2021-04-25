@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.api import deps
 from app.crud import address_crud, user_crud
-from app.schemas.user import User, UserCreate
+from app.schemas.user import User, UserCreate, UserWithAddresses
 
 router = APIRouter()
 
@@ -19,7 +19,7 @@ def create_user(user_in: UserCreate, db: Session = Depends(deps.get_db)) -> Any:
     return user_crud.user.create(db, obj_in=user_in)
 
 
-@router.get("/{user_id}", response_model=User)
+@router.get("/{user_id}", response_model=UserWithAddresses)
 def get_user_by_id(user_id: int, db: Session = Depends(deps.get_db)) -> Any:
     user = user_crud.user.get(db, id=user_id)
     if not user:
@@ -40,4 +40,4 @@ def assign_address_to_user(user_id: int, address_id: int, db: Session = Depends(
     user_model.addresses.append(address_model)
     db.add(user_model)
     db.commit()
-    return True
+    return {"success": True}
