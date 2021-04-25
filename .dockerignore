@@ -1,0 +1,4 @@
+.coverage
+app.db
+.mypy_cache
+.pytest_cache

@@ -13,8 +13,14 @@ format-imports:
 	isort --force-single-line-imports app
 	make format
 
-make lint:
+lint:
 	mypy app --pretty --show-error-context
 	black app --check
 	isort --check-only app
 	flake8
+
+docker-build:
+	docker build . -t fastapi-example:latest
+
+docker-run:
+	docker run -d --name fastapi-example -p 80:80 docker.io/library/fastapi-example:latest
