@@ -19,6 +19,8 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     class Config:
+        """Set case sensitivity."""
+
         case_sensitive = True
 
 
