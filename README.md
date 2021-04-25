@@ -6,13 +6,30 @@ An example of FastAPI basics
 
 ## Getting set up
 
+Check the Makefile for useful macros
+
 Using [Poetry](https://python-poetry.org/) install dependencies
 
 ```shell
 poetry install
 ```
 
-Build the docker image
+### Structure
+
+```
+-- .github      : Github Actions defintions
+-- alembic      : Database table definitions
+-- app
+---- api        : Endpoint defintions and routes
+---- core       : Configuration management
+---- crud       : Tools for performing CRUD ops on various models
+---- db         : Boilerplate sqlalchemy set up
+---- schemas    : Pydantic definitions for models and API requests/responses
+---- tests      : Unit and BDD tests
+```
+
+
+### Build the docker image
 
 ```shell
 make docker-build
