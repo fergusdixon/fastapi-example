@@ -26,5 +26,4 @@ class User(UserInDBBase):
     """
     Fields to be returned from the endpoints
     """
-
     addresses: List[Address]

@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.api import deps
 from app.crud import address_crud
-from app.schemas.address import Address, AddressCreate
+from app.schemas.address import Address, AddressCreate, AddressWithUsers
 
 router = APIRouter()
 
@@ -19,7 +19,7 @@ def create_address(address_in: AddressCreate, db: Session = Depends(deps.get_db)
     return address_crud.address.create(db, obj_in=address_in)
 
 
-@router.get("/{address_id}", response_model=Address)
+@router.get("/{address_id}", response_model=AddressWithUsers)
 def get_address_by_id(address_id: int, db: Session = Depends(deps.get_db)) -> Any:
     address = address_crud.address.get(db, id=address_id)
     if not address:

@@ -48,6 +48,11 @@ def test_link_user_to_address(client: TestClient) -> None:
     assert len(user.get("addresses")) == 1
     assert user.get("addresses")[0]["id"] == address["id"]
 
+    address = client.get(f"{settings.API_V1_STR}/addresses/{address['id']}").json()
+    assert isinstance(address.get("users"), list)
+    assert len(address.get("users")) == 1
+    assert address.get("users")[0]["id"] == user["id"]
+
 
 def test_link_user_to_bad_address(client: TestClient) -> None:
     user = client.post(f"{settings.API_V1_STR}/users", json={"name": "Test User 3"}).json()
